@@ -1,7 +1,7 @@
 # Usage
 
 ## Run npm and composer
-Before we start, we need to install all PHP and Node packages.
+Before we start, we need the latest Composer and a relatively updated NPM. Then, install all PHP and Node packages.
 ```
 npm install
 composer install
@@ -27,12 +27,8 @@ You can also add `--seed` to the command so that you can run the default DB seed
 Make sure you generate a new key for the application 
 `php artisan key:generate`
 
-## Serve the project
-Run the project with the command `php artisan serve` and you should be given the link to access the project in your terminal.
-
-## HMR
-If you need the Hot Module Replacement to work, run the command `npm run dev`.
-Access the link through the link when you ran `php artisan serve`.
+## Running the project
+Run the command `npm run dev` so that Vite will run. Afterwards, run the project with the command `php artisan serve` and you should be given the link to access the project in your terminal.
 
 ## Unit Tests
 You can run the command `php artisan test`.
