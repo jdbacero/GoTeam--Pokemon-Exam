@@ -54,10 +54,9 @@ class PokemonTest extends TestCase
     {
         $user = User::factory()->create();
         $this->actingAs($user);
-        $user->pokemonPreferences()->create(['pokemon' => 'Bulbasaur', 'user_id' => $user->id, 'action' => 'like']);
-        $user->pokemonPreferences()->create(['pokemon' => 'Charmander', 'user_id' => $user->id, 'action' => 'like']);
-        $user->pokemonPreferences()->create(['pokemon' => 'Ivysaur', 'user_id' => $user->id, 'action' => 'like']);
-
+        $this->post('/api/users/pokemon/preference', ['pokemon' => "Bulbasaur", "action" => 'like']);
+        $this->post('/api/users/pokemon/preference', ['pokemon' => "Charmander", "action" => 'like']);
+        $this->post('/api/users/pokemon/preference', ['pokemon' => "Ivysaur", "action" => 'like']);
         $response = $this->post('/api/users/pokemon/preference', ['pokemon' => "Charizard", "action" => 'like']);
         $response->assertStatus(400);
     }
@@ -66,9 +65,10 @@ class PokemonTest extends TestCase
     {
         $user = User::factory()->create();
         $this->actingAs($user);
-        $user->pokemonPreferences()->create(['pokemon' => 'Bulbasaur', 'user_id' => $user->id, 'action' => 'hate']);
-        $user->pokemonPreferences()->create(['pokemon' => 'Charmander', 'user_id' => $user->id, 'action' => 'hate']);
-        $user->pokemonPreferences()->create(['pokemon' => 'Ivysaur', 'user_id' => $user->id, 'action' => 'hate']);
+
+        $this->post('/api/users/pokemon/preference', ['pokemon' => "Bulbasaur", "action" => 'hate']);
+        $this->post('/api/users/pokemon/preference', ['pokemon' => "Charmander", "action" => 'hate']);
+        $this->post('/api/users/pokemon/preference', ['pokemon' => "Ivysaur", "action" => 'hate']);
 
         $response = $this->post('/api/users/pokemon/preference', ['pokemon' => "Charizard", "action" => 'hate']);
         $response->assertStatus(400);
@@ -78,7 +78,7 @@ class PokemonTest extends TestCase
     {
         $user = User::factory()->create();
         $this->actingAs($user);
-        $user->pokemonPreferences()->create(['pokemon' => 'Bulbasaur', 'user_id' => $user->id, 'action' => 'favorite']);
+        $this->post('/api/users/pokemon/preference', ['pokemon' => "Bulbasaur", "action" => 'favorite']);
         $response = $this->post('/api/users/pokemon/preference', ['pokemon' => "Charizard", "action" => 'favorite']);
         $response->assertStatus(400);
     }
