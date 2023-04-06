@@ -3,7 +3,7 @@ import { } from 'vue'
 const props = defineProps({
     msg: {
         type: String,
-        default: "notify"
+        default: ""
     },
     color: {
         type: String,
