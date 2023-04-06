@@ -7,9 +7,9 @@ npm install
 composer install
 ```
 
-## Setup the .env file
+## Setup the .env file and an empty database
 
-Copy the __.env.example__ file and edit the fields according to your MySQL setup:
+Copy the __.env.example__ file and edit the fields according to your MySQL and empty database setup:
  1. DB_CONNECTION
  2. DB_HOST
  3. DB_PORT
