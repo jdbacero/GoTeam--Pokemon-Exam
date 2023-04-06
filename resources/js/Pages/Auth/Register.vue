@@ -51,6 +51,14 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
+
+                <InputLabel for="birthdate" value="Birthdate" />
+                <input type="date" class="form-control" name="birthdate" v-model="form.birthdate" required
+                    autocomplete="birthdate" />
+                <InputError class="mt-2" :message="form.errors.birthdate" />
+            </div>
+
+            <div class="mt-4">
                 <InputLabel for="password" value="Password" />
 
                 <TextInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required

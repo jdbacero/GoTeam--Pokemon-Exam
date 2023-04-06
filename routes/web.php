@@ -3,6 +3,7 @@
 use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -23,15 +24,21 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        $user = Auth::user();
+        $userId = $user->id;
+        return Inertia::render('Dashboard', [
+            'uid' => $userId,
+        ]);
     })->name('dashboard');
-
+    Route::get('/users', function () {
+        return Inertia::render('Users');
+    })->name('users');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/pokemon', [PokemonController::class, 'list']);
+Route::get('/pokemon', [PokemonController::class, 'list'])->name('pokemon');
 
 require __DIR__ . '/auth.php';
