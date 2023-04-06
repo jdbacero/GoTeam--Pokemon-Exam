@@ -1,7 +1,7 @@
 # Usage
 
 ## Run npm and composer
-Before we start, we need the latest Composer and a relatively updated NPM. Then, install all PHP and Node packages.
+Before we start, we need the latest Composer, a relatively newer NPM, and PHP 8.1>. Then, install all PHP and Node packages.
 ```
 npm install
 composer install
