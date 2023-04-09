@@ -19,7 +19,7 @@ Copy the __.env.example__ file and edit the fields according to your MySQL and e
 
 ## Run the DB Migrations
 ```
-php run migrate
+php artisan migrate
 ```
 You can also add `--seed` to the command so that you can run the default DB seeders.
 
